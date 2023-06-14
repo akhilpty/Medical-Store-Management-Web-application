@@ -1,0 +1,28 @@
+{% extends "mainpages/base.html" %}
+{%block content %}
+<div class="container my-3">
+    <h2>Search results : </h2>
+    
+    <table class="table table-bordered table-hover">
+        <thead class="bg-dark text-light">
+            <tr>
+                <th>Medicine Name</th>
+                <th>Medicine type</th>
+                <th>Price <i class="fa fa-inr"></i> </th>
+                <th>Medicine Arrived</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for medicine in medicines %}
+            <tr class="bg-dark text-light">
+                <td>{{medicine.medicine_name}}</td>
+                <td>{{medicine.medicine_type}}</td>
+                <td>{{medicine.price}}</td>
+                <td>{{medicine.medicine_arrived}}</td>
+
+                {% empty %}
+                <tr><td colspan="6">Nothing found</td></tr>
+            {% endfor %}
+           
+</div>
+{% endblock %}

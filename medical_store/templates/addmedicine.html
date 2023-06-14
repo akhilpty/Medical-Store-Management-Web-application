@@ -1,0 +1,20 @@
+{% extends "mainpages/base.html" %}
+{%load crispy_forms_tags %}
+{%block content %}
+<div class="bg-dark bg-gradient">
+    <div class="container">
+        <div class="row">
+            <div class="col-4 mx-auto bg-dark mt-3 p-5 text-light" style="border-radius: 2rem;">
+                <form action="" method="POST">
+                    <h1 class="text-center text-uppercase ">Add medicine <i class="fa-solid fa-pills fa-2xs"></i></h1>
+                    {%csrf_token%}
+                    {{addform | crispy}}
+                    <button class="btn btn-success mb-3 w-100">Add Medicine</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

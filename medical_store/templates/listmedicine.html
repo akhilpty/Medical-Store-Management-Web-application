@@ -1,0 +1,39 @@
+{% extends "mainpages/base.html" %}
+{%block content %}
+    <div class="container">
+        
+        <div class="row">
+            <div class="col">
+                <table class="table  table-striped  ">
+                    <thead class="bg-warning" >
+                        <tr>
+                            <th>NAME</th>
+                            <th>TYPE</th>
+                            <th>PRICE</th>
+                            <th>COUNT</th>
+                            <th>MEDICINE ARRIVED</th>
+                            <th>MEDICINE COMPANY</th>
+                            <th>EDIT</th>
+                            <th>DELETE</th>
+
+                        </tr>
+                    </thead>
+                    <tbody class="table-dark">
+                        {% for medicine in medicines %}
+                        <tr class="text-uppercase">
+                            <td>{{medicine.medicine_name }}</td>
+                            <td>{{medicine.medicine_type}}</td>
+                            <td>{{medicine.price}}</td>
+                            <td>{{medicine.count}}</td>
+                            <td>{{medicine.medicine_arrived}}</td>
+                            <td>{{medicine.medicine_company}}</td>
+                            <td><a href="{% url 'updatemedicine' id=medicine.id%}" class="edit btn btn-sm btn-warning">EDIT <i class="fa fa-edit pl-1"></i></a></td>
+                            <td><a href="{% url 'deletemedicine' id=medicine.id%}" class="btn btn-danger btn-sm">DELETE <i class="fa fa-trash pl-1"></i></a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                  </table>
+          
+        </div>
+    </div>
+{% endblock %}
